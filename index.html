@@ -3,56 +3,41 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Luxe Real Estate — Luxury Client Experience Delivering Results. Auckland's premium real estate specialists. Sharene Temple & Corbin Howard. CBD, Parnell, Waterfront & beyond."/>
+<meta name="description" content="Luxe Real Estate — Luxury Client Experience Delivering Results. Auckland's premium real estate specialists. Sharene Temple & Corbin Howard."/>
 <title>Luxe Real Estate — Luxury Client Experience Delivering Results</title>
-
-<!-- Preconnect for faster font load -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<!-- font-display=swap baked into URL for zero FOIT -->
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 
 <style>
-/* ── DESIGN TOKENS ────────────────────────────────── */
+/* ── TOKENS ─────────────────────────────────── */
 :root{
   --accent:#c4a882; --accent-h:#d4bc96;
   --bg:#0f1014; --bg-dark:#0a0b0d; --bg-mid:#161820; --bg-card:#13141a;
   --text:#f0ece4; --subtle:rgba(240,236,228,.76); --dim:rgba(240,236,228,.36);
   --line:rgba(255,255,255,.08); --line-h:rgba(255,255,255,.18);
+  /* Light section colours */
+  --lt-bg:#ffffff; --lt-bg-alt:#f8f6f2; --lt-text:#1a1512;
+  --lt-subtle:rgba(26,21,18,.62); --lt-dim:rgba(26,21,18,.32);
+  --lt-line:rgba(26,21,18,.1);
   --serif:'Cormorant Garamond',Georgia,serif;
   --sans:'Montserrat',system-ui,sans-serif;
   --ease:cubic-bezier(0.16,1,0.3,1);
   --max-w:1400px; --pad:64px; --nav-h:80px; --panel-w:460px;
 }
-
-/* ── RESET & BASE ──────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{
   scroll-behavior:smooth;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   text-rendering:optimizeLegibility;
-  font-synthesis:none;
 }
 body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--sans);
-  font-weight:300;
-  font-size:16px;
-  line-height:1.75;
+  background:var(--bg);color:var(--text);
+  font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.75;
   overflow-x:hidden;
-  font-feature-settings:'kern' 1,'liga' 1,'calt' 1;
 }
-img{
-  display:block;
-  max-width:100%;
-  height:auto;
-  /* GPU-accelerated compositing for crisp rendering */
-  transform:translateZ(0);
-  backface-visibility:hidden;
-  -webkit-backface-visibility:hidden;
-}
+img{display:block;max-width:100%;height:auto;transform:translateZ(0)}
 a{color:inherit;text-decoration:none}
 button{cursor:pointer;border:none;background:none;font-family:inherit;color:inherit}
 ::selection{background:var(--accent);color:#000}
@@ -60,838 +45,325 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;color:inhe
 ::-webkit-scrollbar-track{background:var(--bg-dark)}
 ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
 
-/* ── LAYOUT HELPERS ───────────────────────────────── */
 .wrap{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad)}
-.sec-label{
-  font-size:11px;font-weight:700;letter-spacing:.44em;
-  text-transform:uppercase;color:var(--accent);
-  margin-bottom:14px;display:block;
-}
-.sec-title{
-  font-family:var(--serif);font-weight:300;
-  font-size:clamp(34px,4.2vw,60px);
-  line-height:1.05;text-rendering:geometricPrecision;
-}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.44em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:block}
+.sec-label.lt{color:var(--accent)}
+.sec-title{font-family:var(--serif);font-weight:300;font-size:clamp(34px,4.2vw,60px);line-height:1.05}
 .sec-title em{font-style:italic}
-
-/* ── SCROLL REVEAL ────────────────────────────────── */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.on{opacity:1;transform:translateY(0)}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
 
-/* ── BUTTONS ──────────────────────────────────────── */
-.btn-primary{
-  display:inline-block;padding:14px 32px;
-  background:var(--accent);color:#000;
-  font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
-  transition:background .22s,transform .18s;cursor:pointer;border:none;
-  font-family:var(--sans);
-}
+/* BUTTONS */
+.btn-primary{display:inline-block;padding:14px 32px;background:var(--accent);color:#000;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;transition:background .22s,transform .18s;cursor:pointer;border:none;font-family:var(--sans)}
 .btn-primary:hover{background:var(--accent-h);transform:translateY(-1px)}
-.btn-outline{
-  display:inline-block;padding:13px 32px;
-  border:1px solid rgba(255,255,255,.22);color:var(--text);
-  font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
-  transition:all .22s;
-}
+.btn-outline{display:inline-block;padding:13px 32px;border:1px solid rgba(255,255,255,.22);color:var(--text);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;transition:all .22s}
 .btn-outline:hover{border-color:var(--text);background:rgba(255,255,255,.05)}
+.btn-outline-dark{display:inline-block;padding:13px 32px;border:1px solid var(--lt-line);color:var(--lt-text);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;transition:all .22s}
+.btn-outline-dark:hover{border-color:var(--accent);color:var(--accent)}
 
-/* ── STICKY BAR ───────────────────────────────────── */
-#sticky-bar{
-  position:fixed;bottom:0;left:0;right:0;z-index:850;
-  background:var(--bg-dark);border-top:1px solid var(--accent);
-  display:flex;align-items:center;justify-content:center;
-  gap:22px;padding:12px var(--pad);
-  transform:translateY(100%);transition:transform .5s var(--ease);
-}
+/* STICKY BAR */
+#sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:850;background:var(--bg-dark);border-top:1px solid var(--accent);display:flex;align-items:center;justify-content:center;gap:22px;padding:12px var(--pad);transform:translateY(100%);transition:transform .5s var(--ease)}
 #sticky-bar.visible{transform:translateY(0)}
 .sticky-label{font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--subtle)}
 .sticky-phone{display:flex;align-items:center;gap:16px}
-.sticky-phone a{
-  font-family:var(--serif);font-size:20px;font-weight:400;
-  color:var(--text);letter-spacing:.04em;transition:color .2s;
-}
+.sticky-phone a{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--text);letter-spacing:.04em;transition:color .2s}
 .sticky-phone a:hover{color:var(--accent)}
 .sticky-pipe{width:1px;height:20px;background:var(--line)}
-.sticky-cta{
-  padding:9px 22px;background:var(--accent);color:#000;
-  font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
-  transition:background .2s;white-space:nowrap;margin-left:4px;
-}
+.sticky-cta{padding:9px 22px;background:var(--accent);color:#000;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;transition:background .2s;white-space:nowrap;margin-left:4px}
 .sticky-cta:hover{background:var(--accent-h)}
-.sticky-suburbs{
-  font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--dim);white-space:nowrap;margin-left:12px;
-}
-.sticky-close{
-  margin-left:auto;color:var(--dim);font-size:16px;
-  cursor:pointer;padding:4px 8px;transition:color .2s;line-height:1;
-}
+.sticky-suburbs{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);white-space:nowrap;margin-left:12px}
+.sticky-close{margin-left:auto;color:var(--dim);font-size:16px;cursor:pointer;padding:4px 8px;transition:color .2s;line-height:1}
 .sticky-close:hover{color:var(--text)}
 
-/* ── NAV ──────────────────────────────────────────── */
-#nav{
-  position:fixed;top:0;left:0;right:0;z-index:900;
-  height:var(--nav-h);display:flex;align-items:center;
-  padding:0 var(--pad);transition:background .4s,box-shadow .4s;
-}
-#nav.scrolled{
-  background:rgba(6,7,9,.97);
-  backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);
-  box-shadow:0 1px 0 var(--line);
-}
-.logo{
-  font-family:var(--serif);font-weight:400;font-size:28px;
-  letter-spacing:.14em;color:var(--text);text-transform:uppercase;
-  position:relative;padding-bottom:4px;
-  text-rendering:geometricPrecision;display:inline-block;
-}
-.logo::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;
-  height:1px;background:var(--accent);
-}
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nav-h);display:flex;align-items:center;padding:0 var(--pad);transition:background .4s,box-shadow .4s}
+#nav.scrolled{background:rgba(6,7,9,.97);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);box-shadow:0 1px 0 var(--line)}
+.logo{font-family:var(--serif);font-weight:400;font-size:28px;letter-spacing:.14em;color:var(--text);text-transform:uppercase;position:relative;padding-bottom:4px;display:inline-block}
+.logo::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--accent)}
 .logo span{color:var(--accent)}
 .nav-links{display:flex;gap:32px;list-style:none;margin-left:auto}
-.nav-links a{
-  font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--subtle);transition:color .22s;position:relative;
-}
-.nav-links a::after{
-  content:'';position:absolute;bottom:-4px;left:0;right:0;
-  height:1px;background:var(--accent);
-  transform:scaleX(0);transform-origin:left;transition:transform .28s var(--ease);
-}
+.nav-links a{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--subtle);transition:color .22s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .28s var(--ease)}
 .nav-links a:hover{color:var(--text)}
 .nav-links a:hover::after{transform:scaleX(1)}
-.nav-phone{
-  margin-left:26px;font-family:var(--serif);font-size:17px;
-  color:var(--subtle);letter-spacing:.04em;transition:color .22s;
-}
+.nav-phone{margin-left:26px;font-family:var(--serif);font-size:17px;color:var(--subtle);letter-spacing:.04em;transition:color .22s}
 .nav-phone:hover{color:var(--accent)}
-.nav-cta{
-  margin-left:16px;padding:11px 26px;
-  background:transparent;border:1px solid var(--accent);
-  color:var(--accent);font-size:11px;font-weight:700;
-  letter-spacing:.22em;text-transform:uppercase;
-  transition:all .22s;white-space:nowrap;
-}
+.nav-cta{margin-left:16px;padding:11px 26px;background:transparent;border:1px solid var(--accent);color:var(--accent);font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;transition:all .22s;white-space:nowrap}
 .nav-cta:hover{background:var(--accent);color:#000}
 
-/* ── HERO ─────────────────────────────────────────── */
-#hero{
-  position:relative;height:100vh;min-height:700px;
-  display:grid;grid-template-columns:1fr var(--panel-w);overflow:hidden;
-}
+/* HERO */
+#hero{position:relative;height:100vh;min-height:700px;display:grid;grid-template-columns:1fr var(--panel-w);overflow:hidden}
 .hero-photo{position:relative;overflow:hidden}
-.hero-photo img{
-  width:100%;height:100%;
-  object-fit:cover;object-position:center 30%;
-  transform:scale(1.08);
-  /* will-change for GPU-compositing of zoom animation */
-  will-change:transform;
-  animation:hZoom 22s ease-out forwards;
-  filter:contrast(1.04) saturate(1.06) brightness(.92);
-}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scale(1.08);will-change:transform;animation:hZoom 22s ease-out forwards;filter:contrast(1.04) saturate(1.06) brightness(.88)}
 @keyframes hZoom{to{transform:scale(1.0)}}
-.hero-photo-ov{
-  position:absolute;inset:0;
-  background:
-    linear-gradient(105deg,rgba(0,0,0,.44) 0%,transparent 58%),
-    linear-gradient(to bottom,rgba(0,0,0,.05) 50%,rgba(0,0,0,.52));
-}
-.hero-panel{
-  background:var(--bg-dark);
-  display:flex;flex-direction:column;justify-content:center;
-  padding:0 54px;border-left:1px solid var(--line);
-  position:relative;overflow:hidden;
-}
-.hero-panel::before{
-  content:'';position:absolute;top:0;left:0;bottom:0;width:2px;
-  background:linear-gradient(to bottom,transparent,var(--accent),transparent);
-}
-/* Staggered hero panel animations */
-.hero-sub-brand{
-  font-size:11px;font-weight:700;letter-spacing:.44em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:22px;
-  opacity:0;transform:translateY(14px);
-  animation:fUp .8s .4s var(--ease) forwards;
-}
-.hero-h1{
-  font-family:var(--serif);font-weight:300;
-  font-size:clamp(38px,3.6vw,56px);line-height:1.04;
-  text-rendering:geometricPrecision;
-  opacity:0;transform:translateY(18px);
-  animation:fUp .9s .65s var(--ease) forwards;
-}
+.hero-photo-ov{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,0,.44) 0%,transparent 58%),linear-gradient(to bottom,rgba(0,0,0,.05) 50%,rgba(0,0,0,.52))}
+.hero-panel{background:var(--bg-dark);display:flex;flex-direction:column;justify-content:center;padding:0 54px;border-left:1px solid var(--line);position:relative;overflow:hidden}
+.hero-panel::before{content:'';position:absolute;top:0;left:0;bottom:0;width:2px;background:linear-gradient(to bottom,transparent,var(--accent),transparent)}
+.hero-sub-brand{font-size:11px;font-weight:700;letter-spacing:.44em;text-transform:uppercase;color:var(--accent);margin-bottom:22px;opacity:0;transform:translateY(14px);animation:fUp .8s .4s var(--ease) forwards}
+.hero-h1{font-family:var(--serif);font-weight:300;font-size:clamp(38px,3.6vw,56px);line-height:1.04;opacity:0;transform:translateY(18px);animation:fUp .9s .65s var(--ease) forwards}
 .hero-h1 em{font-style:italic}
-.hero-divider{
-  width:48px;height:1px;background:var(--accent);margin:22px 0;
-  opacity:0;animation:fUp .8s .8s var(--ease) forwards;
-}
-.hero-sub{
-  font-size:14px;color:var(--subtle);line-height:1.9;
-  opacity:0;transform:translateY(14px);
-  animation:fUp .9s .9s var(--ease) forwards;
-}
-.hero-search{
-  display:flex;margin-top:26px;
-  opacity:0;transform:translateY(14px);
-  animation:fUp .9s 1.05s var(--ease) forwards;
-}
-.hero-search input{
-  flex:1;background:rgba(255,255,255,.05);
-  border:1px solid var(--line);border-right:none;
-  color:var(--text);font-family:var(--sans);font-size:14px;font-weight:300;
-  padding:13px 18px;outline:none;
-  transition:border-color .22s,background .22s;
-}
-.hero-search input::placeholder{color:var(--subtle)}
-.hero-search input:focus{border-color:rgba(196,168,130,.5);background:rgba(255,255,255,.075)}
-.btn-search{
-  background:var(--accent);color:#000;font-size:11px;font-weight:700;
-  letter-spacing:.22em;text-transform:uppercase;padding:13px 20px;
-  transition:background .2s;white-space:nowrap;
-}
-.btn-search:hover{background:var(--accent-h)}
-.hero-actions{
-  display:flex;flex-direction:column;gap:10px;margin-top:12px;
-  opacity:0;transform:translateY(14px);
-  animation:fUp .9s 1.14s var(--ease) forwards;
-}
-.hero-actions .btn-primary{text-align:center}
-.hero-stats{
-  display:grid;grid-template-columns:1fr 1fr;gap:1px;
-  margin-top:32px;background:var(--line);
-  opacity:0;transform:translateY(14px);
-  animation:fUp .9s 1.3s var(--ease) forwards;
-}
+.hero-divider{width:48px;height:1px;background:var(--accent);margin:22px 0;opacity:0;animation:fUp .8s .8s var(--ease) forwards}
+.hero-sub{font-size:14px;color:var(--subtle);line-height:1.9;opacity:0;transform:translateY(14px);animation:fUp .9s .9s var(--ease) forwards}
+.hero-actions{display:flex;flex-direction:column;gap:10px;margin-top:24px;opacity:0;transform:translateY(14px);animation:fUp .9s 1.05s var(--ease) forwards}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:32px;background:var(--line);opacity:0;transform:translateY(14px);animation:fUp .9s 1.3s var(--ease) forwards}
 .hstat{background:var(--bg-dark);padding:18px 20px}
-.hstat-n{
-  font-family:var(--serif);font-size:34px;font-weight:300;
-  line-height:1;color:var(--accent);text-rendering:geometricPrecision;
-}
+.hstat-n{font-family:var(--serif);font-size:34px;font-weight:300;line-height:1;color:var(--accent)}
 .hstat-n sup{font-size:14px;color:var(--text);vertical-align:super}
-.hstat-l{
-  font-size:11px;font-weight:700;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--subtle);margin-top:5px;
-}
+.hstat-l{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--subtle);margin-top:5px}
 @keyframes fUp{to{opacity:1;transform:translateY(0)}}
 
-/* ── TICKER ───────────────────────────────────────── */
-#ticker{
-  background:var(--bg-dark);
-  border-top:1px solid var(--accent);
-  border-bottom:1px solid rgba(196,168,130,.14);
-  overflow:hidden;padding:13px 0;
-}
-.tick-track{
-  display:flex;white-space:nowrap;
-  will-change:transform;
-  animation:tickScroll 56s linear infinite;
-}
+/* TICKER */
+#ticker{background:var(--bg-dark);border-top:1px solid var(--accent);border-bottom:1px solid rgba(196,168,130,.14);overflow:hidden;padding:13px 0}
+.tick-track{display:flex;white-space:nowrap;will-change:transform;animation:tickScroll 56s linear infinite}
 .tick-track:hover{animation-play-state:paused}
-.tick-item{
-  display:inline-flex;align-items:center;gap:14px;padding:0 36px;
-  font-size:11px;font-weight:700;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--subtle);
-}
+.tick-item{display:inline-flex;align-items:center;gap:14px;padding:0 36px;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--subtle)}
 .tick-dot{width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0}
 @keyframes tickScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* ── FEATURED LISTING ─────────────────────────────── */
+/* FEATURED */
 #featured{padding:0}
-.feat-wrap{
-  display:grid;grid-template-columns:var(--panel-w) 1fr;
-  min-height:92vh;
-}
-.feat-panel{
-  background:var(--bg-dark);
-  display:flex;flex-direction:column;justify-content:center;
-  padding:64px 52px;border-right:1px solid var(--line);order:1;
-}
-.feat-photo-wrap{
-  position:relative;overflow:hidden;
-  background:var(--bg-dark);order:2;min-height:600px;
-}
-.feat-badge{
-  position:absolute;top:36px;left:36px;z-index:2;
-  background:var(--accent);color:#000;
-  font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
-  padding:8px 18px;
-}
-.feat-price-tag{
-  position:absolute;top:36px;right:36px;z-index:2;
-  background:rgba(0,0,0,.72);backdrop-filter:blur(12px);
-  color:var(--text);font-family:var(--serif);font-size:22px;font-weight:400;
-  padding:10px 20px;letter-spacing:.04em;
-}
-.feat-photo{
-  width:100%;height:100%;
-  object-fit:cover;object-position:center;
-  filter:contrast(1.03) saturate(1.03);
-  transition:transform .9s var(--ease);
-  will-change:transform;
-  display:block;
-}
+.feat-wrap{display:grid;grid-template-columns:var(--panel-w) 1fr;min-height:92vh}
+.feat-panel{background:var(--bg-dark);display:flex;flex-direction:column;justify-content:center;padding:64px 52px;border-right:1px solid var(--line);order:1}
+.feat-photo-wrap{position:relative;overflow:hidden;background:var(--bg-dark);order:2;min-height:600px}
+.feat-badge{position:absolute;top:36px;left:36px;z-index:2;background:var(--accent);color:#000;font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;padding:8px 18px}
+.feat-price-tag{position:absolute;top:36px;right:36px;z-index:2;background:rgba(0,0,0,.72);backdrop-filter:blur(12px);color:var(--text);font-family:var(--serif);font-size:22px;font-weight:400;padding:10px 20px;letter-spacing:.04em}
+.feat-photo{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .9s var(--ease);will-change:transform;display:block}
 .feat-photo-wrap:hover .feat-photo{transform:scale(1.03)}
-.feat-thumbs{
-  position:absolute;bottom:0;left:0;right:0;
-  display:flex;gap:2px;height:94px;
-  background:rgba(0,0,0,.8);padding:2px;
-}
+.feat-thumbs{position:absolute;bottom:0;left:0;right:0;display:flex;gap:2px;height:94px;background:rgba(0,0,0,.8);padding:2px}
 .feat-thumb{flex:1;overflow:hidden;cursor:pointer;position:relative;min-width:0}
-.feat-thumb img{
-  width:100%;height:100%;object-fit:cover;
-  filter:brightness(.52) contrast(1.05);
-  transition:filter .28s;display:block;
-}
+.feat-thumb img{width:100%;height:100%;object-fit:cover;filter:brightness(.52);transition:filter .28s;display:block}
 .feat-thumb:hover img{filter:brightness(1)}
-.feat-thumb-more{
-  position:absolute;inset:0;background:rgba(0,0,0,.68);
-  display:flex;align-items:center;justify-content:center;
-  font-size:14px;font-weight:600;color:#fff;
-}
-.feat-eyebrow{
-  font-size:11px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:14px;
-}
-.feat-title{
-  font-family:var(--serif);font-weight:300;
-  font-size:clamp(26px,2.6vw,42px);line-height:1.07;
-  text-rendering:geometricPrecision;
-}
+.feat-thumb-more{position:absolute;inset:0;background:rgba(0,0,0,.68);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#fff}
+.feat-eyebrow{font-size:11px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.feat-title{font-family:var(--serif);font-weight:300;font-size:clamp(26px,2.6vw,42px);line-height:1.07}
 .feat-title em{font-style:italic}
-.feat-addr{
-  font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--subtle);margin:12px 0 18px;
-}
-.feat-desc{
-  font-size:14px;color:var(--subtle);line-height:1.88;
-  padding:15px 17px;background:rgba(255,255,255,.032);
-  border-left:2px solid var(--accent);margin-bottom:20px;
-}
-.feat-specs{
-  display:grid;grid-template-columns:1fr 1fr;gap:1px;
-  background:var(--line);margin-bottom:20px;
-}
+.feat-addr{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--subtle);margin:12px 0 18px}
+.feat-desc{font-size:14px;color:var(--subtle);line-height:1.88;padding:15px 17px;background:rgba(255,255,255,.032);border-left:2px solid var(--accent);margin-bottom:20px}
+.feat-specs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-bottom:20px}
 .fspec{background:var(--bg-dark);padding:14px 17px}
-.fspec label{
-  font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--subtle);display:block;margin-bottom:4px;
-}
-.fspec p{
-  font-family:var(--serif);font-size:22px;font-weight:400;
-  line-height:1;text-rendering:geometricPrecision;
-}
+.fspec label{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--subtle);display:block;margin-bottom:4px}
+.fspec p{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1}
 .fspec p small{font-family:var(--sans);font-size:12px;font-weight:300;color:var(--subtle)}
 .feat-amenities{margin-bottom:20px}
-.feat-amen-label{
-  font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--subtle);margin-bottom:8px;
-}
+.feat-amen-label{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--subtle);margin-bottom:8px}
 .feat-amen-list{display:flex;flex-wrap:wrap;gap:5px}
-.feat-amen{
-  padding:4px 11px;border:1px solid var(--line);
-  font-size:11px;font-weight:500;letter-spacing:.1em;color:var(--subtle);
-}
-.feat-price{
-  font-family:var(--serif);font-size:34px;font-weight:300;
-  margin-bottom:6px;text-rendering:geometricPrecision;
-}
+.feat-amen{padding:4px 11px;border:1px solid var(--line);font-size:11px;font-weight:500;letter-spacing:.1em;color:var(--subtle)}
+.feat-price{font-family:var(--serif);font-size:34px;font-weight:300;margin-bottom:6px}
 .feat-price-note{font-size:13px;color:var(--subtle);margin-bottom:22px}
-.feat-agent{
-  display:flex;align-items:center;gap:14px;
-  padding-top:20px;border-top:1px solid var(--line);
-}
-.feat-agent-photo{
-  width:50px;height:50px;border-radius:50%;overflow:hidden;
-  flex-shrink:0;border:1px solid var(--accent);
-}
-.feat-agent-photo img{
-  width:100%;height:100%;object-fit:cover;object-position:top center;display:block;
-}
+.feat-agent{display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid var(--line)}
+.feat-agent-photo{width:50px;height:50px;border-radius:50%;overflow:hidden;flex-shrink:0;border:1px solid var(--accent)}
+.feat-agent-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 .feat-agent-name{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
 .feat-agent-role{font-size:11px;color:var(--subtle);margin-top:2px;letter-spacing:.06em}
 .feat-agent-btns{display:flex;gap:5px;margin-top:7px;flex-wrap:wrap}
-.agent-btn{
-  padding:6px 13px;border:1px solid var(--line);
-  font-size:11px;font-weight:500;letter-spacing:.1em;
-  color:var(--subtle);transition:all .2s;
-}
+.agent-btn{padding:6px 13px;border:1px solid var(--line);font-size:11px;font-weight:500;letter-spacing:.1em;color:var(--subtle);transition:all .2s}
 .agent-btn:hover{border-color:var(--accent);color:var(--accent)}
 
-/* ── PROPERTIES GRID ──────────────────────────────── */
-#properties{padding:120px 0}
-.sec-head{
-  display:flex;justify-content:space-between;align-items:flex-end;
-  margin-bottom:48px;
+/* ── PROPERTIES — WHITE BACKGROUND ── */
+#properties{
+  padding:120px 0;
+  background:var(--lt-bg);
 }
-.view-all{
-  font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--subtle);border-bottom:1px solid var(--accent);
-  padding-bottom:2px;transition:color .2s;white-space:nowrap;
-}
-.view-all:hover{color:var(--text)}
+#properties .sec-label{color:var(--accent)}
+#properties .sec-title{color:var(--lt-text)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px}
+.view-all{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--lt-subtle);border-bottom:1px solid var(--accent);padding-bottom:2px;transition:color .2s;white-space:nowrap}
+.view-all:hover{color:var(--lt-text)}
 .prop-filters{display:flex;gap:3px;margin-bottom:36px}
-.pfilter{
-  padding:9px 22px;font-size:11px;font-weight:700;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--subtle);
-  border:1px solid var(--line);transition:all .2s;
-}
+.pfilter{padding:9px 22px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--lt-subtle);border:1px solid var(--lt-line);transition:all .2s;background:transparent}
 .pfilter.active,.pfilter:hover{background:var(--accent);border-color:var(--accent);color:#000}
-.prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-.prop-card{position:relative;overflow:hidden;background:var(--bg-dark);cursor:pointer}
+/* Cards: black-framed on white background */
+.prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:4px}
+.prop-card{position:relative;overflow:hidden;background:#fff;cursor:pointer;box-shadow:0 2px 16px rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.06);transition:box-shadow .35s var(--ease),transform .35s var(--ease)}
 .prop-card:first-child{grid-column:span 2}
-.prop-img{
-  width:100%;height:420px;object-fit:cover;display:block;
-  filter:brightness(.76) contrast(1.04) saturate(1.02);
-  transition:transform .75s var(--ease),filter .4s;
-  will-change:transform;
-}
+.prop-card:hover{box-shadow:0 12px 48px rgba(0,0,0,.22);transform:translateY(-3px)}
+.prop-img{width:100%;height:420px;object-fit:cover;display:block;transition:transform .75s var(--ease);will-change:transform}
 .prop-card:first-child .prop-img{height:530px}
-.prop-card:hover .prop-img{transform:scale(1.05);filter:brightness(.94) contrast(1.03)}
-.prop-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(transparent 30%,rgba(0,0,0,.88));
-}
+.prop-card:hover .prop-img{transform:scale(1.04)}
+.prop-overlay{position:absolute;inset:0;background:linear-gradient(transparent 38%,rgba(0,0,0,.84))}
 .prop-info{position:absolute;bottom:0;left:0;right:0;padding:26px 30px}
-.prop-tag{
-  display:inline-block;padding:4px 12px;background:var(--accent);color:#000;
-  font-size:11px;font-weight:700;letter-spacing:.24em;
-  text-transform:uppercase;margin-bottom:10px;
-}
-.prop-suburb{
-  font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
-  color:rgba(255,255,255,.5);margin-bottom:4px;
-}
-.prop-name{
-  font-family:var(--serif);font-size:26px;font-weight:300;
-  line-height:1.14;text-rendering:geometricPrecision;
-}
+.prop-tag{display:inline-block;padding:4px 12px;background:var(--accent);color:#000;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;margin-bottom:10px}
+.prop-suburb{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px}
+.prop-name{font-family:var(--serif);font-size:26px;font-weight:300;line-height:1.14}
 .prop-stats{display:flex;gap:16px;margin-top:9px}
-.prop-stat{
-  font-size:12px;font-weight:500;letter-spacing:.08em;
-  text-transform:uppercase;color:rgba(255,255,255,.44);
-}
-.prop-stat strong{
-  display:block;font-family:var(--serif);font-size:17px;font-weight:400;
-  color:var(--text);letter-spacing:0;text-rendering:geometricPrecision;
-}
+.prop-stat{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.44)}
+.prop-stat strong{display:block;font-family:var(--serif);font-size:17px;font-weight:400;color:var(--text);letter-spacing:0}
 .prop-view-all{text-align:center;margin-top:44px}
 
-/* ── SPECIALISTS ──────────────────────────────────── */
+/* ── SPECIALISTS — DARK ── */
 #specialists{padding:120px 0;background:var(--bg-mid)}
 .spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:56px}
-.spec-card{
-  display:grid;grid-template-columns:240px 1fr;
-  background:var(--bg-dark);overflow:hidden;
-  transition:transform .35s var(--ease),box-shadow .35s;
-}
+.spec-card{display:grid;grid-template-columns:240px 1fr;background:var(--bg-dark);overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s}
 .spec-card:hover{transform:translateY(-3px);box-shadow:0 20px 52px rgba(0,0,0,.6)}
-.spec-photo{
-  width:240px;height:360px;
-  object-fit:cover;object-position:top center;
-  filter:brightness(.84) contrast(1.06);
-  transition:filter .5s;display:block;
-}
-.spec-card:hover .spec-photo{filter:brightness(.96) contrast(1.03)}
+.spec-photo{width:240px;height:360px;object-fit:cover;object-position:top center;display:block;transition:filter .5s}
+.spec-card:hover .spec-photo{}
 .spec-body{padding:32px 28px;display:flex;flex-direction:column;justify-content:space-between}
-.spec-badge{
-  font-size:11px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;
-  color:var(--subtle);margin-bottom:12px;display:block;
-}
-.spec-name{font-family:var(--serif);font-size:30px;font-weight:400;text-rendering:geometricPrecision}
-.spec-role{
-  font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--subtle);margin-top:5px;
-}
-.accolade-badge{
-  display:inline-flex;align-items:center;gap:7px;
-  padding:5px 13px;background:rgba(196,168,130,.1);
-  border:1px solid rgba(196,168,130,.28);
-  font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--accent);margin-top:12px;margin-bottom:4px;
-}
+.spec-badge{font-size:11px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--subtle);margin-bottom:12px;display:block}
+.spec-name{font-family:var(--serif);font-size:30px;font-weight:400}
+.spec-role{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--subtle);margin-top:5px}
+.accolade-badge{display:inline-flex;align-items:center;gap:7px;padding:5px 13px;background:rgba(196,168,130,.1);border:1px solid rgba(196,168,130,.28);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-top:12px;margin-bottom:4px}
 .accolade-badge::before{content:'★';font-size:11px}
 .spec-bio{font-size:14px;color:var(--subtle);line-height:1.78;margin:12px 0 16px}
 .spec-actions{display:flex;gap:4px;flex-wrap:wrap;margin-top:auto;padding-top:16px}
-.spec-btn{
-  padding:9px 17px;border:1px solid var(--line);
-  font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--subtle);transition:all .2s;
-}
+.spec-btn{padding:9px 17px;border:1px solid var(--line);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--subtle);transition:all .2s}
 .spec-btn:hover{border-color:var(--accent);color:var(--accent)}
 .spec-btn.primary{background:var(--accent);border-color:var(--accent);color:#000}
 .spec-btn.primary:hover{background:var(--accent-h)}
 
-/* ── TESTIMONIALS ─────────────────────────────────── */
-#testimonials{
-  padding:120px 0;background:var(--bg-dark);
-  position:relative;overflow:hidden;
-}
-#testimonials::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(to right,transparent,var(--accent),transparent);
-}
-#testimonials::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
-  background:linear-gradient(to right,transparent,var(--accent),transparent);
-}
+/* ── TESTIMONIALS — DARK ── */
+#testimonials{padding:120px 0;background:var(--bg-dark);position:relative;overflow:hidden}
+#testimonials::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--accent),transparent)}
+#testimonials::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--accent),transparent)}
 .test-intro{text-align:center;max-width:560px;margin:0 auto 64px}
-.test-rate-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:7px 16px;background:rgba(196,168,130,.08);
-  border:1px solid rgba(196,168,130,.22);
-  font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--accent);margin-top:14px;
-}
+.test-rate-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;background:rgba(196,168,130,.08);border:1px solid rgba(196,168,130,.22);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-top:14px}
 .test-rate-badge::before{content:'★★★★★';letter-spacing:.14em;font-size:11px}
 .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-.test-card{
-  background:var(--bg-mid);padding:44px 38px;position:relative;
-  transition:transform .35s var(--ease),background .3s;
-}
+.test-card{background:var(--bg-mid);padding:44px 38px;position:relative;transition:transform .35s var(--ease),background .3s}
 .test-card:hover{transform:translateY(-4px);background:var(--bg-card)}
-.test-card::before{
-  content:'\201C';position:absolute;top:22px;left:34px;
-  font-family:var(--serif);font-size:88px;line-height:1;
-  color:rgba(196,168,130,.13);pointer-events:none;
-}
+.test-card::before{content:'\201C';position:absolute;top:22px;left:34px;font-family:var(--serif);font-size:88px;line-height:1;color:rgba(196,168,130,.13);pointer-events:none}
 .test-stars{display:flex;gap:4px;margin-bottom:18px}
 .test-star{color:var(--accent);font-size:14px}
-.test-body{
-  font-family:var(--serif);font-size:18px;font-weight:300;
-  line-height:1.62;color:var(--text);margin-bottom:26px;
-  text-rendering:geometricPrecision;
-}
+.test-body{font-family:var(--serif);font-size:18px;font-weight:300;line-height:1.62;color:var(--text);margin-bottom:26px}
 .test-body em{font-style:italic;color:var(--accent)}
-.test-author{
-  display:flex;align-items:center;gap:14px;
-  padding-top:20px;border-top:1px solid var(--line);
-}
-.test-avatar{
-  width:44px;height:44px;border-radius:50%;background:var(--accent);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--serif);font-size:18px;font-weight:400;color:#000;flex-shrink:0;
-}
-.test-name{font-size:14px;font-weight:700;letter-spacing:.06em;color:var(--text)}
+.test-author{display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid var(--line)}
+.test-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;font-weight:400;color:#000;flex-shrink:0}
+.test-name{font-size:14px;font-weight:700;letter-spacing:.06em}
 .test-sub{font-size:12px;color:var(--subtle);margin-top:2px;letter-spacing:.04em}
-.test-verified{
-  display:inline-flex;align-items:center;gap:4px;
-  font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--accent);margin-top:4px;
-}
+.test-verified{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-top:4px}
 .test-verified::before{content:'✓';font-size:11px}
 
-/* ── ABOUT ────────────────────────────────────────── */
+/* ── ABOUT — WHITE BACKGROUND ── */
 #about{
-  padding:120px 0;background:var(--bg-mid);
+  padding:120px 0;
+  background:var(--lt-bg);
   position:relative;overflow:hidden;
 }
-#about::before{
-  content:'LUXE';position:absolute;right:-30px;top:50%;
-  transform:translateY(-50%);
-  font-family:var(--sans);font-weight:700;font-size:220px;letter-spacing:.3em;
-  color:rgba(255,255,255,.011);pointer-events:none;user-select:none;
-}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.about-img{
-  width:100%;height:600px;object-fit:cover;object-position:center;
-  display:block;filter:contrast(1.04);
-}
+.about-img{width:100%;height:600px;object-fit:cover;object-position:center top;display:block}
 .about-quote{
   font-family:var(--serif);font-size:clamp(18px,1.9vw,26px);font-weight:300;
   line-height:1.52;margin:24px 0 20px;padding:22px 24px;
-  border-left:2px solid var(--accent);background:rgba(255,255,255,.024);
-  text-rendering:geometricPrecision;
+  border-left:3px solid var(--accent);
+  background:var(--lt-bg-alt);
+  color:var(--lt-text);
 }
 .about-quote em{font-style:italic;color:var(--accent)}
-.about-body{font-size:15px;color:var(--subtle);line-height:1.92}
-.about-services{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:32px;background:var(--line)}
-.about-service{background:var(--bg-mid);padding:22px 24px}
+.about-sec-label{font-size:11px;font-weight:700;letter-spacing:.44em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:block}
+.about-title{font-family:var(--serif);font-weight:300;font-size:clamp(34px,4.2vw,60px);line-height:1.05;color:var(--lt-text)}
+.about-title em{font-style:italic}
+.about-body{font-size:15px;color:var(--lt-subtle);line-height:1.92}
+.about-services{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:32px;background:var(--lt-line)}
+.about-service{background:var(--lt-bg);padding:22px 24px;border:1px solid var(--lt-line)}
 .about-service-icon{font-size:22px;margin-bottom:10px}
-.about-service-title{
-  font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--text);margin-bottom:6px;
-}
-.about-service-body{font-size:14px;color:var(--subtle);line-height:1.7}
-.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:28px;background:var(--line)}
-.about-stat{background:var(--bg-mid);padding:22px 24px}
-.astat-n{
-  font-family:var(--serif);font-size:44px;font-weight:300;
-  line-height:1;color:var(--accent);text-rendering:geometricPrecision;
-}
-.astat-n sup{font-size:17px;color:var(--text)}
-.astat-l{
-  font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
-  color:var(--subtle);margin-top:6px;
-}
+.about-service-title{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--lt-text);margin-bottom:6px}
+.about-service-body{font-size:14px;color:var(--lt-subtle);line-height:1.7}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:28px;background:var(--lt-line)}
+.about-stat{background:var(--lt-bg);padding:22px 24px;border:1px solid var(--lt-line)}
+.astat-n{font-family:var(--serif);font-size:44px;font-weight:300;line-height:1;color:var(--accent)}
+.astat-n sup{font-size:17px;color:var(--lt-text)}
+.astat-l{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--lt-subtle);margin-top:6px}
 
-/* ── QUOTE BREAK — no background-attachment:fixed (Chrome artefacts) ── */
-#quote-break{
-  height:58vh;min-height:360px;
-  position:relative;overflow:hidden;
-}
-.qb-bg{
-  position:absolute;
-  /* 120% size + JS translateY for parallax effect without fixed attachment */
-  inset:-15% 0;
-  background-image:url('images/quote-bg.jpg');
-  background-size:cover;
-  background-position:center center;
-  filter:contrast(1.04) saturate(1.02) brightness(.62);
-  will-change:transform;
-}
-.qb-overlay{
-  position:absolute;inset:0;background:rgba(0,0,0,.46);
-  display:flex;align-items:center;justify-content:center;
-  flex-direction:column;gap:18px;
-}
+/* ── QUOTE BREAK — JS parallax, no fixed attachment ── */
+#quote-break{height:58vh;min-height:360px;position:relative;overflow:hidden}
+.qb-bg{position:absolute;inset:-15% 0;background-image:url('images/quote-bg.jpg');background-size:cover;background-position:center center;filter:brightness(.55) contrast(1.06) saturate(1.08);will-change:transform}
+.qb-overlay{position:absolute;inset:0;background:rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px}
+/* Quote text — all ONE colour: white */
 .qb-text{
   color:#ffffff;
   font-family:var(--serif);font-weight:300;
   font-size:clamp(24px,3.8vw,52px);line-height:1.2;
   text-align:center;max-width:860px;padding:0 48px;
-  text-rendering:geometricPrecision;
+  font-style:normal;
 }
-.qb-text em{font-style:italic;color:rgba(196,168,130,.92)}
-.qb-attr{
-  font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;
-  color:rgba(196,168,130,.6);
-}
+.qb-attr{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.7)}
 
-/* ── CONTACT ──────────────────────────────────────── */
+/* CONTACT */
 #contact{padding:120px 0;background:var(--bg-dark)}
-.contact-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:80px;
-  align-items:stretch;max-width:1160px;margin:0 auto;
-}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:stretch;max-width:1160px;margin:0 auto}
 .contact-form{display:flex;flex-direction:column;gap:14px;margin-top:36px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .form-field{display:flex;flex-direction:column;gap:8px}
-.form-label{
-  font-size:11px;font-weight:700;letter-spacing:.26em;
-  text-transform:uppercase;color:var(--subtle);
-}
-.form-field input,
-.form-field select,
-.form-field textarea{
-  background:rgba(255,255,255,.042);border:1px solid var(--line);
-  color:var(--text);font-family:var(--sans);font-size:15px;font-weight:300;
-  padding:13px 16px;outline:none;
-  transition:border-color .22s,background .22s;-webkit-appearance:none;
-}
-.form-field input:focus,
-.form-field select:focus,
-.form-field textarea:focus{border-color:var(--accent);background:rgba(255,255,255,.07)}
+.form-label{font-size:11px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--subtle)}
+.form-field input,.form-field select,.form-field textarea{background:rgba(255,255,255,.042);border:1px solid var(--line);color:var(--text);font-family:var(--sans);font-size:15px;font-weight:300;padding:13px 16px;outline:none;transition:border-color .22s,background .22s;-webkit-appearance:none}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--accent);background:rgba(255,255,255,.07)}
 .form-field textarea{height:110px;resize:vertical}
 .form-field select option{background:var(--bg-dark)}
 .contact-details{display:flex;flex-direction:column;justify-content:center;gap:16px}
 .contact-detail{display:flex;gap:14px;align-items:flex-start}
-.contact-icon{
-  width:40px;height:40px;flex-shrink:0;background:var(--accent);
-  display:flex;align-items:center;justify-content:center;
-  font-size:15px;color:#000;margin-top:3px;
-}
-.contact-label{
-  font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
-  color:var(--subtle);display:block;margin-bottom:3px;
-}
+.contact-icon{width:40px;height:40px;flex-shrink:0;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:15px;color:#000;margin-top:3px}
+.contact-label{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--subtle);display:block;margin-bottom:3px}
 .contact-value{font-size:15px;color:var(--text);transition:color .2s}
 a.contact-value:hover{color:var(--accent)}
-.contact-concierge{
-  margin-top:24px;padding:24px;
-  background:rgba(196,168,130,.06);border:1px solid rgba(196,168,130,.2);
-}
-.contact-concierge h4{
-  font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:8px;
-}
+.contact-concierge{margin-top:24px;padding:24px;background:rgba(196,168,130,.06);border:1px solid rgba(196,168,130,.2)}
+.contact-concierge h4{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .contact-concierge p{font-size:14px;color:var(--subtle);line-height:1.7}
 
-/* ── FOOTER ───────────────────────────────────────── */
-#footer{
-  background:var(--bg-dark);padding:72px 0 100px;
-  border-top:1px solid var(--line);
-}
-.footer-grid{
-  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;
-  padding-bottom:48px;border-bottom:1px solid var(--line);
-}
-.footer-logo{
-  font-family:var(--serif);font-weight:400;font-size:22px;
-  letter-spacing:.14em;text-transform:uppercase;
-  display:inline-block;position:relative;padding-bottom:4px;
-  text-rendering:geometricPrecision;
-}
-.footer-logo::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;
-  height:1px;background:var(--accent);
-}
+/* FOOTER */
+#footer{background:var(--bg-dark);padding:72px 0 100px;border-top:1px solid var(--line)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;padding-bottom:48px;border-bottom:1px solid var(--line)}
+.footer-logo{font-family:var(--serif);font-weight:400;font-size:22px;letter-spacing:.14em;text-transform:uppercase;display:inline-block;position:relative;padding-bottom:4px}
+.footer-logo::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--accent)}
 .footer-logo span{color:var(--accent)}
-.footer-tagline{
-  font-size:14px;color:var(--subtle);line-height:1.8;
-  margin-top:16px;max-width:260px;
-  font-style:italic;font-family:var(--serif);
-}
+.footer-tagline{font-size:14px;color:var(--subtle);line-height:1.8;margin-top:16px;max-width:260px;font-style:italic;font-family:var(--serif)}
 .footer-branch{font-size:12px;color:var(--dim);margin-top:10px;letter-spacing:.06em}
 .footer-social{display:flex;gap:7px;margin-top:20px}
-.social-btn{
-  width:36px;height:36px;border:1px solid var(--line);
-  display:flex;align-items:center;justify-content:center;
-  font-size:13px;color:var(--subtle);transition:all .22s;
-}
+.social-btn{width:36px;height:36px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--subtle);transition:all .22s}
 .social-btn:hover{border-color:var(--accent);background:var(--accent);color:#000}
-.footer-col h4{
-  font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;
-  color:var(--text);margin-bottom:18px;
-}
+.footer-col h4{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--text);margin-bottom:18px}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
 .footer-col ul a{font-size:14px;color:var(--subtle);transition:color .2s}
 .footer-col ul a:hover{color:var(--accent)}
-.footer-bottom{
-  display:flex;justify-content:space-between;align-items:center;
-  padding-top:22px;font-size:13px;color:var(--dim);
-}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:22px;font-size:13px;color:var(--dim)}
 .footer-bottom-links{display:flex;gap:20px}
 .footer-bottom a{transition:color .2s}.footer-bottom a:hover{color:var(--subtle)}
 
-/* ── CHAT WIDGET ──────────────────────────────────── */
-#chat-btn{
-  position:fixed;bottom:72px;right:32px;z-index:800;
-  width:58px;height:58px;border-radius:50%;background:var(--accent);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 6px 26px rgba(0,0,0,.55);
-  transition:transform .3s var(--ease),box-shadow .3s,bottom .5s var(--ease);
-  cursor:pointer;
-}
+/* CHAT */
+#chat-btn{position:fixed;bottom:72px;right:32px;z-index:800;width:58px;height:58px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 26px rgba(0,0,0,.55);transition:transform .3s var(--ease),box-shadow .3s,bottom .5s var(--ease);cursor:pointer}
 #chat-btn.bar-open{bottom:92px}
 #chat-btn:hover{transform:scale(1.08);box-shadow:0 14px 36px rgba(196,168,130,.44)}
 #chat-btn svg{width:24px;height:24px;fill:#000}
-.chat-pulse{
-  position:absolute;top:4px;right:4px;width:11px;height:11px;
-  background:#2ecc71;border-radius:50%;border:2px solid var(--accent);
-  animation:pulse 2.2s infinite;
-}
+.chat-pulse{position:absolute;top:4px;right:4px;width:11px;height:11px;background:#2ecc71;border-radius:50%;border:2px solid var(--accent);animation:pulse 2.2s infinite}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.38);opacity:.6}}
-#chat-panel{
-  position:fixed;bottom:140px;right:32px;z-index:801;
-  width:378px;max-height:580px;background:var(--bg-dark);
-  border:1px solid var(--line);box-shadow:0 22px 70px rgba(0,0,0,.74);
-  display:flex;flex-direction:column;
-  transform:translateY(18px) scale(.97);opacity:0;pointer-events:none;
-  transition:transform .38s var(--ease),opacity .3s,bottom .5s var(--ease);
-}
+#chat-panel{position:fixed;bottom:140px;right:32px;z-index:801;width:378px;max-height:580px;background:var(--bg-dark);border:1px solid var(--line);box-shadow:0 22px 70px rgba(0,0,0,.74);display:flex;flex-direction:column;transform:translateY(18px) scale(.97);opacity:0;pointer-events:none;transition:transform .38s var(--ease),opacity .3s,bottom .5s var(--ease)}
 #chat-panel.bar-open{bottom:164px}
 #chat-panel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:all}
-.chat-head{
-  background:var(--accent);padding:15px 18px;
-  display:flex;align-items:center;gap:12px;
-}
-.chat-avatar{
-  width:36px;height:36px;border-radius:50%;overflow:hidden;
-  border:2px solid rgba(0,0,0,.2);flex-shrink:0;
-}
-.chat-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.chat-head{background:var(--accent);padding:15px 18px;display:flex;align-items:center;gap:12px}
+.chat-avatar{width:36px;height:36px;border-radius:50%;overflow:hidden;border:2px solid rgba(0,0,0,.2);flex-shrink:0}
+.chat-avatar img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 .chat-name{font-size:13px;font-weight:700;color:#000}
 .chat-status{font-size:11px;color:rgba(0,0,0,.56);display:flex;align-items:center;gap:4px}
 .status-dot{width:6px;height:6px;background:#1a8a47;border-radius:50%}
-.chat-close{
-  margin-left:auto;color:rgba(0,0,0,.46);font-size:17px;
-  cursor:pointer;line-height:1;transition:color .2s;
-}
+.chat-close{margin-left:auto;color:rgba(0,0,0,.46);font-size:17px;cursor:pointer;line-height:1;transition:color .2s}
 .chat-close:hover{color:#000}
-.chat-messages{
-  flex:1;overflow-y:auto;padding:16px 16px 8px;
-  display:flex;flex-direction:column;gap:10px;max-height:320px;
-}
-.msg{
-  display:flex;flex-direction:column;max-width:88%;gap:3px;
-  animation:msgIn .3s var(--ease);
-}
+.chat-messages{flex:1;overflow-y:auto;padding:16px 16px 8px;display:flex;flex-direction:column;gap:10px;max-height:320px}
+.msg{display:flex;flex-direction:column;max-width:88%;gap:3px;animation:msgIn .3s var(--ease)}
 @keyframes msgIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
 .msg.agent{align-self:flex-start}.msg.visitor{align-self:flex-end}
 .msg-bubble{padding:10px 13px;font-size:14px;line-height:1.6;font-weight:300}
-.msg.agent .msg-bubble{
-  background:var(--bg-mid);border-left:2px solid var(--accent);
-  border-radius:0 10px 10px 10px;color:var(--text);
-}
+.msg.agent .msg-bubble{background:var(--bg-mid);border-left:2px solid var(--accent);border-radius:0 10px 10px 10px;color:var(--text)}
 .msg.visitor .msg-bubble{background:var(--accent);color:#000;border-radius:10px 10px 0 10px}
 .msg-time{font-size:11px;color:var(--dim);letter-spacing:.04em}
 .msg.visitor .msg-time{text-align:right}
-.chat-typing{
-  display:flex;align-items:center;gap:5px;padding:10px 13px;
-  background:var(--bg-mid);border-left:2px solid var(--accent);
-  border-radius:0 10px 10px 10px;max-width:54px;
-}
-.chat-typing span{
-  width:5px;height:5px;background:var(--subtle);border-radius:50%;
-  animation:dot 1.2s infinite;
-}
+.chat-typing{display:flex;align-items:center;gap:5px;padding:10px 13px;background:var(--bg-mid);border-left:2px solid var(--accent);border-radius:0 10px 10px 10px;max-width:54px}
+.chat-typing span{width:5px;height:5px;background:var(--subtle);border-radius:50%;animation:dot 1.2s infinite}
 .chat-typing span:nth-child(2){animation-delay:.2s}
 .chat-typing span:nth-child(3){animation-delay:.4s}
 @keyframes dot{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
 .chat-quickreplies{display:flex;flex-wrap:wrap;gap:5px;padding:4px 16px 8px}
-.chat-quickreplies button{
-  padding:5px 11px;border:1px solid var(--line);background:transparent;
-  font-size:11px;color:var(--subtle);transition:all .2s;cursor:pointer;
-  font-family:var(--sans);
-}
+.chat-quickreplies button{padding:5px 11px;border:1px solid var(--line);background:transparent;font-size:11px;color:var(--subtle);transition:all .2s;cursor:pointer;font-family:var(--sans)}
 .chat-quickreplies button:hover{border-color:var(--accent);color:var(--accent)}
 .chat-input-row{display:flex;border-top:1px solid var(--line);background:var(--bg-mid)}
-#chat-input{
-  flex:1;background:transparent;border:none;outline:none;
-  padding:12px 15px;font-family:var(--sans);font-size:14px;font-weight:300;
-  color:var(--text);
-}
+#chat-input{flex:1;background:transparent;border:none;outline:none;padding:12px 15px;font-family:var(--sans);font-size:14px;font-weight:300;color:var(--text)}
 #chat-input::placeholder{color:var(--dim)}
-#chat-send{
-  width:46px;background:var(--accent);border:none;cursor:pointer;
-  color:#000;font-size:16px;display:flex;align-items:center;
-  justify-content:center;transition:background .2s;
-}
+#chat-send{width:46px;background:var(--accent);border:none;cursor:pointer;color:#000;font-size:16px;display:flex;align-items:center;justify-content:center;transition:background .2s}
 #chat-send:hover{background:var(--accent-h)}
-.chat-footer{
-  text-align:center;padding:8px;font-size:11px;color:var(--dim);
-  border-top:1px solid var(--line);letter-spacing:.08em;
-}
+.chat-footer{text-align:center;padding:8px;font-size:11px;color:var(--dim);border-top:1px solid var(--line);letter-spacing:.08em}
 
-/* ── RESPONSIVE ───────────────────────────────────── */
-@media(max-width:1200px){
-  :root{--pad:40px;--panel-w:420px}
-  .spec-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:40px}
-  .test-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:960px){
-  :root{--panel-w:100%}
-  #hero{grid-template-columns:1fr;height:auto;padding-top:var(--nav-h)}
-  .hero-photo{min-height:56vw}
-  .hero-photo img{position:relative;height:100%;min-height:56vw}
-  .hero-panel{padding:48px var(--pad) 56px}
-  .feat-wrap{grid-template-columns:1fr}
-  .feat-panel{order:2;border-right:none;border-top:1px solid var(--line)}
-  .feat-photo-wrap{order:1;min-height:60vw}
-  .about-grid{grid-template-columns:1fr;gap:48px}
-  .about-img{height:420px}
-  .contact-grid{grid-template-columns:1fr}
-  .prop-grid{grid-template-columns:1fr 1fr}
-  .prop-card:first-child{grid-column:span 2}
-  .test-grid{grid-template-columns:1fr}
-}
-@media(max-width:720px){
-  :root{--pad:22px}
-  .nav-links,.nav-cta,.nav-phone{display:none}
-  .spec-card{grid-template-columns:1fr}
-  .spec-photo{width:100%;height:280px}
-  .footer-grid{grid-template-columns:1fr}
-  #chat-panel{right:10px;left:10px;width:auto}
-  .hero-stats{grid-template-columns:1fr 1fr}
-  #sticky-bar{flex-wrap:wrap;gap:12px;padding:10px 16px}
-  .sticky-pipe,.sticky-suburbs{display:none}
-  .prop-grid{grid-template-columns:1fr}
-  .prop-card:first-child{grid-column:span 1}
-}
+/* RESPONSIVE */
+@media(max-width:1200px){:root{--pad:40px;--panel-w:420px}.spec-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr;gap:40px}.test-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:960px){:root{--panel-w:100%}#hero{grid-template-columns:1fr;height:auto;padding-top:var(--nav-h)}.hero-photo{min-height:56vw}.hero-photo img{position:relative;height:100%;min-height:56vw}.hero-panel{padding:48px var(--pad) 56px}.feat-wrap{grid-template-columns:1fr}.feat-panel{order:2;border-right:none;border-top:1px solid var(--line)}.feat-photo-wrap{order:1;min-height:60vw}.about-grid{grid-template-columns:1fr;gap:48px}.about-img{height:420px}.contact-grid{grid-template-columns:1fr}.prop-grid{grid-template-columns:1fr 1fr}.prop-card:first-child{grid-column:span 2}.test-grid{grid-template-columns:1fr}}
+@media(max-width:720px){:root{--pad:22px}.nav-links,.nav-cta,.nav-phone{display:none}.spec-card{grid-template-columns:1fr}.spec-photo{width:100%;height:280px}.footer-grid{grid-template-columns:1fr}#chat-panel{right:10px;left:10px;width:auto}#sticky-bar{flex-wrap:wrap;gap:12px;padding:10px 16px}.sticky-pipe,.sticky-suburbs{display:none}.prop-grid{grid-template-columns:1fr}.prop-card:first-child{grid-column:span 1}}
 </style>
 </head>
 <body>
@@ -926,12 +398,7 @@ a.contact-value:hover{color:var(--accent)}
 <!-- HERO -->
 <section id="hero">
   <div class="hero-photo">
-    <img
-      src="images/landing.jpg"
-      alt="Luxe Real Estate — Auckland Premium Property"
-      loading="eager"
-      onerror="this.style.cssText='background:linear-gradient(135deg,#0a0b0d,#161820);width:100%;height:100%;'"
-    />
+    <img src="images/landing.jpg" alt="Luxe Real Estate — 503/9 Princes Street Auckland Central" loading="eager" onerror="this.style.cssText='background:linear-gradient(135deg,#0a0b0d,#161820);width:100%;height:100%;'"/>
     <div class="hero-photo-ov"></div>
   </div>
   <div class="hero-panel">
@@ -939,13 +406,9 @@ a.contact-value:hover{color:var(--accent)}
     <h1 class="hero-h1">Luxury Client<br>Experience<br><em>Delivering Results</em></h1>
     <div class="hero-divider"></div>
     <p class="hero-sub">With over 27 years of combined expertise, Sharene Temple and Corbin Howard represent Auckland's most coveted properties — from CBD penthouses and waterfront apartments to coastal retreats and lifestyle estates.</p>
-    <div class="hero-search">
-      <input type="text" placeholder="Suburb, building or property type…"/>
-      <button class="btn-search">Search</button>
-    </div>
     <div class="hero-actions">
-      <a href="#featured" class="btn-primary">View Current Listings</a>
-      <a href="#contact" class="btn-outline">Request Free Appraisal</a>
+      <a href="#featured" class="btn-primary" style="text-align:center">View Current Listings</a>
+      <a href="#contact" class="btn-outline" style="text-align:center">Request Free Appraisal</a>
     </div>
     <div class="hero-stats">
       <div class="hstat"><div class="hstat-n">27<sup>+</sup></div><div class="hstat-l">Years Combined</div></div>
@@ -963,25 +426,23 @@ a.contact-value:hover{color:var(--accent)}
   <div class="tick-item"><span class="tick-dot"></span>SOLD — 93 Shortland Street, Auckland Central</div>
   <div class="tick-item"><span class="tick-dot"></span>SOLD — 86 The Strand, Parnell</div>
   <div class="tick-item"><span class="tick-dot"></span>SOLD — 28 Market Place, Auckland Central</div>
-  <div class="tick-item"><span class="tick-dot"></span>SOLD — 10 Commerce Street, Auckland CBD</div>
   <div class="tick-item"><span class="tick-dot"></span>SOLD — 33 Queens Parade, Devonport</div>
   <div class="tick-item"><span class="tick-dot"></span>SOLD — 26 Albert Street, Auckland CBD</div>
   <div class="tick-item"><span class="tick-dot"></span>SOLD — 1 Courthouse Lane, Auckland Central</div>
   <div class="tick-item"><span class="tick-dot"></span>SOLD — 93 Shortland Street, Auckland Central</div>
   <div class="tick-item"><span class="tick-dot"></span>SOLD — 86 The Strand, Parnell</div>
   <div class="tick-item"><span class="tick-dot"></span>SOLD — 28 Market Place, Auckland Central</div>
-  <div class="tick-item"><span class="tick-dot"></span>SOLD — 10 Commerce Street, Auckland CBD</div>
   <div class="tick-item"><span class="tick-dot"></span>SOLD — 33 Queens Parade, Devonport</div>
 </div></div>
 
-<!-- FEATURED -->
+<!-- FEATURED LISTING -->
 <section id="featured">
   <div class="feat-wrap">
     <div class="feat-panel">
       <p class="feat-eyebrow">Featured Residence · Auckland Central</p>
       <h2 class="feat-title">Grand by Design,<br><em>International by Nature</em></h2>
       <p class="feat-addr">503/9 Princes Street · Auckland Central</p>
-      <p class="feat-desc">The gorgeous façade of what was once the celebrated Grand Hotel provides the perfect historic threshold to this world-class residence. Designed by Jasmax Architects — 139sqm of beautifully composed living with soaring 3m ceilings, blonde timber flooring and an intimate outdoor terrace. City living at its most cultivated.</p>
+      <p class="feat-desc">The gorgeous façade of what was once the celebrated Grand Hotel provides the threshold to this world-class residence. Designed by Jasmax Architects — 139sqm of beautifully composed living with soaring 3m ceilings, blonde timber flooring and an intimate outdoor terrace.</p>
       <div class="feat-specs">
         <div class="fspec"><label>Bedrooms</label><p>2 <small>bed</small></p></div>
         <div class="fspec"><label>Bathrooms</label><p>2 <small>bath</small></p></div>
@@ -991,12 +452,9 @@ a.contact-value:hover{color:var(--accent)}
       <div class="feat-amenities">
         <p class="feat-amen-label">Building Amenities</p>
         <div class="feat-amen-list">
-          <span class="feat-amen">Technogym</span>
-          <span class="feat-amen">Pool &amp; Spa</span>
-          <span class="feat-amen">Cinema</span>
-          <span class="feat-amen">Library</span>
-          <span class="feat-amen">Concierge</span>
-          <span class="feat-amen">Onslow Restaurant</span>
+          <span class="feat-amen">Technogym</span><span class="feat-amen">Pool &amp; Spa</span>
+          <span class="feat-amen">Cinema</span><span class="feat-amen">Library</span>
+          <span class="feat-amen">Concierge</span><span class="feat-amen">Onslow Restaurant</span>
           <span class="feat-amen">Pet Friendly</span>
         </div>
       </div>
@@ -1020,12 +478,7 @@ a.contact-value:hover{color:var(--accent)}
     <div class="feat-photo-wrap">
       <span class="feat-badge">For Sale</span>
       <span class="feat-price-tag">$2,495,000</span>
-      <img
-        src="images/featured1.jpg"
-        alt="503/9 Princes Street, Auckland Central"
-        class="feat-photo"
-        onerror="this.style.cssText='background:linear-gradient(135deg,#0a0b0d,#161820);width:100%;height:100%;'"
-      />
+      <img src="images/featured1.jpg" alt="503/9 Princes Street, Auckland Central" class="feat-photo" onerror="this.style.cssText='background:linear-gradient(135deg,#0a0b0d,#161820);width:100%;height:100%;'"/>
       <div class="feat-thumbs">
         <div class="feat-thumb"><img src="images/featured2.jpg" alt="The International" onerror="this.parentNode.style.background='#161820'"/></div>
         <div class="feat-thumb"><img src="images/featured3.jpg" alt="The International" onerror="this.parentNode.style.background='#161820'"/></div>
@@ -1037,11 +490,11 @@ a.contact-value:hover{color:var(--accent)}
   </div>
 </section>
 
-<!-- PROPERTIES -->
+<!-- PROPERTIES — WHITE SECTION -->
 <section id="properties">
   <div class="wrap">
     <div class="sec-head rv">
-      <div><span class="sec-label">Current Collection</span><h2 class="sec-title">Further Exceptional<br><em>Auckland Properties</em></h2></div>
+      <div><span class="sec-label">Current Collection</span><h2 class="sec-title" style="color:var(--lt-text)">Further Exceptional<br><em>Auckland Properties</em></h2></div>
       <a href="https://www.luxerealestate.co.nz/properties/" target="_blank" class="view-all">View All Properties →</a>
     </div>
     <div class="prop-filters rv">
@@ -1051,13 +504,14 @@ a.contact-value:hover{color:var(--accent)}
       <button class="pfilter" data-filter="coastal">Coastal</button>
     </div>
     <div class="prop-grid">
+      <!-- prop1: 1508/26 Albert Street — deadline sale, 209sqm -->
       <div class="prop-card rv" data-suburb="cbd">
-        <img src="images/prop1.jpg" alt="1508/26 Albert Street" class="prop-img" onerror="this.style.background='#0a0b0d'"/>
+        <img src="images/prop1.jpg" alt="1508/26 Albert Street — Prestige on Albert" class="prop-img" onerror="this.style.background='#111'"/>
         <div class="prop-overlay"></div>
         <div class="prop-info">
           <span class="prop-tag">Deadline Sale</span>
           <p class="prop-suburb">Auckland Central</p>
-          <h3 class="prop-name">1508/26 Albert Street</h3>
+          <h3 class="prop-name">Prestige on Albert<br>1508/26 Albert Street</h3>
           <div class="prop-stats">
             <div class="prop-stat"><strong>3</strong>Bed</div>
             <div class="prop-stat"><strong>3</strong>Bath</div>
@@ -1065,13 +519,14 @@ a.contact-value:hover{color:var(--accent)}
           </div>
         </div>
       </div>
+      <!-- prop2: 302/2 Ruskin Street Parnell -->
       <div class="prop-card rv d1" data-suburb="parnell">
-        <img src="images/prop2.jpg" alt="302/2 Ruskin Street, Parnell" class="prop-img" onerror="this.style.background='#0a0b0d'"/>
+        <img src="images/prop2.jpg" alt="302/2 Ruskin Street, Parnell — Sub-Penthouse" class="prop-img" onerror="this.style.background='#111'"/>
         <div class="prop-overlay"></div>
         <div class="prop-info">
           <span class="prop-tag">$2,495,000</span>
           <p class="prop-suburb">Parnell</p>
-          <h3 class="prop-name">302/2 Ruskin Street</h3>
+          <h3 class="prop-name">Sophisticated Sub-Penthouse<br>302/2 Ruskin Street</h3>
           <div class="prop-stats">
             <div class="prop-stat"><strong>2</strong>Bed</div>
             <div class="prop-stat"><strong>2</strong>Bath</div>
@@ -1079,13 +534,14 @@ a.contact-value:hover{color:var(--accent)}
           </div>
         </div>
       </div>
+      <!-- prop3: 1912/26 Albert Street -->
       <div class="prop-card rv d2" data-suburb="cbd">
-        <img src="images/prop3.jpg" alt="1912/26 Albert Street" class="prop-img" onerror="this.style.background='#0a0b0d'"/>
+        <img src="images/prop3.jpg" alt="1912/26 Albert Street — Sanctuary in the Sky" class="prop-img" onerror="this.style.background='#111'"/>
         <div class="prop-overlay"></div>
         <div class="prop-info">
           <span class="prop-tag">$1,995,000</span>
           <p class="prop-suburb">Auckland Central</p>
-          <h3 class="prop-name">1912/26 Albert Street</h3>
+          <h3 class="prop-name">Sanctuary in the Sky<br>1912/26 Albert Street</h3>
           <div class="prop-stats">
             <div class="prop-stat"><strong>3</strong>Bed</div>
             <div class="prop-stat"><strong>3</strong>Bath</div>
@@ -1093,13 +549,14 @@ a.contact-value:hover{color:var(--accent)}
           </div>
         </div>
       </div>
+      <!-- prop4: Villa 7/6 The Marina, Tairua -->
       <div class="prop-card rv" data-suburb="coastal">
-        <img src="images/prop4.jpg" alt="Villa 7/6 The Marina, Tairua" class="prop-img" onerror="this.style.background='#0a0b0d'"/>
+        <img src="images/prop4.jpg" alt="Villa 7/6 The Marina, Tairua — Waterfront" class="prop-img" onerror="this.style.background='#111'"/>
         <div class="prop-overlay"></div>
         <div class="prop-info">
           <span class="prop-tag">By Negotiation</span>
-          <p class="prop-suburb">Tairua · Coastal</p>
-          <h3 class="prop-name">Villa 7/6 The Marina</h3>
+          <p class="prop-suburb">Tairua · Coromandel Coast</p>
+          <h3 class="prop-name">Ultimate Waterfront Villa<br>Villa 7/6 The Marina</h3>
           <div class="prop-stats">
             <div class="prop-stat"><strong>3</strong>Bed</div>
             <div class="prop-stat"><strong>3</strong>Bath</div>
@@ -1107,26 +564,29 @@ a.contact-value:hover{color:var(--accent)}
           </div>
         </div>
       </div>
+      <!-- prop5: 163A Paritai Drive, Orakei -->
       <div class="prop-card rv d1" data-suburb="coastal">
-        <img src="images/prop5.jpg" alt="79F Barrett Road, Riverhead" class="prop-img" onerror="this.style.background='#0a0b0d'"/>
+        <img src="images/prop5.jpg" alt="163A Paritai Drive, Orakei" class="prop-img" onerror="this.style.background='#111'"/>
         <div class="prop-overlay"></div>
         <div class="prop-info">
           <span class="prop-tag">By Negotiation</span>
-          <p class="prop-suburb">Riverhead · Lifestyle</p>
-          <h3 class="prop-name">79F Barrett Road</h3>
+          <p class="prop-suburb">Orakei</p>
+          <h3 class="prop-name">Family, Fun &amp; Sun<br>163A Paritai Drive</h3>
           <div class="prop-stats">
-            <div class="prop-stat"><strong>2</strong>Bed</div>
-            <div class="prop-stat"><strong>1.04</strong>Ha</div>
-            <div class="prop-stat"><strong>181</strong>M²</div>
+            <div class="prop-stat"><strong>4</strong>Bed</div>
+            <div class="prop-stat"><strong>3</strong>Bath</div>
+            <div class="prop-stat"><strong>315</strong>M²</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="prop-view-all rv"><a href="https://www.luxerealestate.co.nz/properties/" target="_blank" class="btn-outline" style="padding:14px 48px">View All Listings →</a></div>
+    <div class="prop-view-all rv">
+      <a href="https://www.luxerealestate.co.nz/properties/" target="_blank" class="btn-outline-dark" style="padding:14px 48px">View All Listings →</a>
+    </div>
   </div>
 </section>
 
-<!-- SPECIALISTS -->
+<!-- SPECIALISTS — DARK -->
 <section id="specialists">
   <div class="wrap">
     <div class="sec-head rv">
@@ -1136,15 +596,16 @@ a.contact-value:hover{color:var(--accent)}
       </div>
     </div>
     <div class="spec-grid">
+      <!-- Sharene Temple -->
       <div class="spec-card rv">
-        <img src="images/sharene.jpg" alt="Sharene Temple" class="spec-photo" onerror="this.style.cssText='background:var(--bg-mid);width:240px;height:360px'"/>
+        <img src="images/sharene.jpg" alt="Sharene Temple — Senior Salesperson" class="spec-photo" onerror="this.style.cssText='background:var(--bg-mid);width:240px;height:360px'"/>
         <div class="spec-body">
           <div>
             <span class="spec-badge">Senior Salesperson</span>
             <p class="spec-name">Sharene Temple</p>
             <p class="spec-role">Principal · Luxe Real Estate</p>
             <div class="accolade-badge">Top 20% Rate My Agent · Most Trusted</div>
-            <p class="spec-bio">With 25+ years in the industry, Sharene is one of Auckland's most in-demand agents — renowned for her tenacity, transparency and ability to achieve exceptional results even in the most challenging markets. Consistent 10/10 Ask Nicely scores and Price Expert recognition.</p>
+            <p class="spec-bio">With 25+ years in the industry, Sharene is one of Auckland's most in-demand agents — renowned for tenacity, transparency and an ability to achieve exceptional results even in challenging markets. Consistent 10/10 Ask Nicely scores, Price Expert recognition, 100% 5-star reviews.</p>
           </div>
           <div class="spec-actions">
             <a href="tel:+64272246045" class="spec-btn primary">☎ +64 27 224 6045</a>
@@ -1153,8 +614,9 @@ a.contact-value:hover{color:var(--accent)}
           </div>
         </div>
       </div>
+      <!-- Corbin Howard -->
       <div class="spec-card rv d1">
-        <img src="images/corbin.jpg" alt="Corbin Howard" class="spec-photo" onerror="this.style.cssText='background:var(--bg-mid);width:240px;height:360px'"/>
+        <img src="images/corbin.jpg" alt="Corbin Howard — Real Estate Salesperson" class="spec-photo" onerror="this.style.cssText='background:var(--bg-mid);width:240px;height:360px'"/>
         <div class="spec-body">
           <div>
             <span class="spec-badge">Real Estate Salesperson</span>
@@ -1202,23 +664,18 @@ a.contact-value:hover{color:var(--accent)}
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT — WHITE SECTION -->
 <section id="about">
   <div class="wrap">
     <div class="about-grid">
       <div class="rv">
-        <img
-          src="images/about.jpg"
-          alt="Luxe Real Estate — Waterfront Ferry Building Auckland"
-          class="about-img"
-          onerror="this.style.cssText='background:linear-gradient(135deg,#0a0b0d,#161820);width:100%;height:600px'"
-        />
+        <img src="images/about.jpg" alt="Sharene Temple — Luxe Real Estate" class="about-img" onerror="this.style.cssText='background:var(--lt-bg-alt);width:100%;height:600px'"/>
       </div>
       <div class="rv d1">
-        <span class="sec-label">About Luxe Real Estate</span>
-        <h2 class="sec-title">27 Years of<br><em>Superlative Results</em></h2>
+        <span class="about-sec-label">About Luxe Real Estate</span>
+        <h2 class="about-title">27 Years of<br><em>Superlative Results</em></h2>
         <div class="about-quote">"With an <em>innate ability to achieve incredible results</em> through superior service, high quality marketing and genuine personal touch — LUXE Real Estate thrives where others don't."</div>
-        <p class="about-body">From CBD penthouses and marina residences to coastal retreats and lifestyle estates — Sharene and Corbin list where they choose, across all property types, with no boundaries. Their close relationships with top photography teams, furniture stagers, and digital marketing specialists ensure every listing is picture-book ready for a competitive marketplace. Six team members in administration ensure no job is too big.</p>
+        <p class="about-body">From CBD penthouses and marina residences to coastal retreats and lifestyle estates — Sharene and Corbin list where they choose, across all property types, with no boundaries. Their close relationships with top photography teams, furniture stagers, and digital marketing specialists ensure every listing is picture-book ready.</p>
         <div class="about-services">
           <div class="about-service"><div class="about-service-icon">🏙</div><div class="about-service-title">Sell Your Property</div><div class="about-service-body">Premium marketing, expert negotiation, exceptional results.</div></div>
           <div class="about-service"><div class="about-service-icon">🔍</div><div class="about-service-title">Buy a Property</div><div class="about-service-body">Let us match you with your perfect home or investment.</div></div>
@@ -1237,11 +694,11 @@ a.contact-value:hover{color:var(--accent)}
   </div>
 </section>
 
-<!-- QUOTE BREAK (JS parallax — no background-attachment:fixed) -->
+<!-- QUOTE BREAK — Tairua waterfront landscape bg, all-white quote text -->
 <div id="quote-break">
   <div class="qb-bg" id="qb-bg"></div>
   <div class="qb-overlay">
-    <p class="qb-text rv" style="color:#ffffff">"Luxury Client Experience —<br><em>Delivering Results.</em>"</p>
+    <p class="qb-text rv">"Luxury Client Experience — Delivering Results."</p>
     <p class="qb-attr rv d1">Luxe Real Estate · Auckland</p>
   </div>
 </div>
@@ -1318,7 +775,7 @@ a.contact-value:hover{color:var(--accent)}
   </div>
 </footer>
 
-<!-- CHAT -->
+<!-- CHAT WIDGET -->
 <button id="chat-btn" title="Luxe Concierge">
   <div class="chat-pulse"></div>
   <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
@@ -1330,10 +787,10 @@ a.contact-value:hover{color:var(--accent)}
     <span class="chat-close" id="chat-close">✕</span>
   </div>
   <div class="chat-messages" id="chat-messages">
-    <div class="msg agent"><div class="msg-bubble">Welcome to Luxe Real Estate. I'm here to help you with Auckland's finest properties. How may I assist you today?</div><div class="msg-time">Just now</div></div>
+    <div class="msg agent"><div class="msg-bubble">Welcome to Luxe Real Estate. How may I help you today?</div><div class="msg-time">Just now</div></div>
   </div>
   <div class="chat-quickreplies" id="chat-quickreplies">
-    <button data-msg="Tell me about 503/9 Princes Street">503 Princes Street</button>
+    <button data-msg="Tell me about 503/9 Princes Street">503 Princes St</button>
     <button data-msg="I want a free appraisal">Free appraisal</button>
     <button data-msg="Properties for sale in Auckland CBD">CBD listings</button>
     <button data-msg="Speak to Sharene">Speak to Sharene</button>
@@ -1346,11 +803,11 @@ a.contact-value:hover{color:var(--accent)}
 </div>
 
 <script>
-// ── Nav scroll ──
+// Nav scroll
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), {passive:true});
 
-// ── Sticky bar ──
+// Sticky bar
 const stickyBar = document.getElementById('sticky-bar');
 const stickyClose = document.getElementById('sticky-close');
 let dismissed = false;
@@ -1368,26 +825,25 @@ stickyClose.addEventListener('click', () => {
   document.getElementById('chat-panel').classList.remove('bar-open');
 });
 
-// ── Scroll reveal (IntersectionObserver — GPU efficient) ──
+// Scroll reveal
 const ro = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); ro.unobserve(e.target); } });
 }, {threshold: 0.08});
 document.querySelectorAll('.rv').forEach(el => ro.observe(el));
 
-// ── Parallax quote break (replaces background-attachment:fixed to avoid Chrome artefacts) ──
+// Parallax quote (no background-attachment:fixed → no Chrome artefacts)
 const qbBg = document.getElementById('qb-bg');
 const qbSection = document.getElementById('quote-break');
 function updateParallax() {
   if (!qbBg || !qbSection) return;
   const rect = qbSection.getBoundingClientRect();
   const progress = 1 - (rect.top + rect.height) / (window.innerHeight + rect.height);
-  const offset = (progress - 0.5) * 80;
-  qbBg.style.transform = 'translateY(' + offset + 'px)';
+  qbBg.style.transform = 'translateY(' + ((progress - 0.5) * 80) + 'px)';
 }
 window.addEventListener('scroll', updateParallax, {passive:true});
 updateParallax();
 
-// ── Property filter ──
+// Property filter
 document.querySelectorAll('.pfilter').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.pfilter').forEach(b => b.classList.remove('active'));
@@ -1399,7 +855,7 @@ document.querySelectorAll('.pfilter').forEach(btn => {
   });
 });
 
-// ── Chat ──
+// Chat
 const chatBtn = document.getElementById('chat-btn');
 const chatPanel = document.getElementById('chat-panel');
 const chatMsgs = document.getElementById('chat-messages');
@@ -1409,7 +865,6 @@ let chatHistory = [];
 
 chatBtn.addEventListener('click', () => chatPanel.classList.toggle('open'));
 document.getElementById('chat-close').addEventListener('click', () => chatPanel.classList.remove('open'));
-
 function timeNow() { return new Date().toLocaleTimeString('en-NZ', {hour:'2-digit', minute:'2-digit'}); }
 
 function addMsg(role, text) {
@@ -1419,13 +874,11 @@ function addMsg(role, text) {
   chatMsgs.appendChild(d);
   chatMsgs.scrollTop = chatMsgs.scrollHeight;
 }
-
 function showTyping() {
   const d = document.createElement('div');
   d.className = 'msg agent'; d.id = 'typ';
   d.innerHTML = '<div class="chat-typing"><span></span><span></span><span></span></div>';
-  chatMsgs.appendChild(d);
-  chatMsgs.scrollTop = chatMsgs.scrollHeight;
+  chatMsgs.appendChild(d); chatMsgs.scrollTop = chatMsgs.scrollHeight;
 }
 function hideTyping() { const t = document.getElementById('typ'); if (t) t.remove(); }
 
@@ -1441,9 +894,8 @@ async function sendMsg(text) {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: 'You are the Luxe Real Estate AI Concierge. Luxe Real Estate is a premium Auckland agency operated by Sharene Temple (Senior Salesperson, +64 27 224 6045, sharene@luxerealestate.co.nz) and Corbin Howard (Salesperson, +64 21 027 1597, corbin@luxerealestate.co.nz). Office: Waterfront Ferry Building, Eastern Annex, Ground Floor, 99-107 Quay Street, Auckland 1010. Featured listing: 503/9 Princes Street, Auckland Central — $2,495,000. 2 bed, 2 bath, 1 secure car park, 139sqm apartment in The International (former Grand Hotel), designed by Jasmax Architects. 3m ceilings, blonde timber floors, outdoor terrace, travertine ensuite, study. Building: Technogym, pool & spa, cinema, library, concierge, Onslow restaurant (Josh Emett). Pet friendly. Other listings: 1508/26 Albert Street (Deadline Sale, 3 bed, 209sqm), 302/2 Ruskin Street Parnell ($2,495,000, 2 bed), Villa 7 The Marina Tairua (waterfront, by negotiation), 79F Barrett Road Riverhead (lifestyle, by negotiation). Luxe tagline: "Luxury Client Experience Delivering Results". 27 years combined experience. 100% 5-star reviews on Rate My Agent. Offer free appraisals. Be warm, concise, professional. Max 3 sentences. Direct viewing requests to Sharene.',
+        model: 'claude-sonnet-4-20250514', max_tokens: 1000,
+        system: 'You are the Luxe Real Estate AI Concierge. Agents: Sharene Temple (+64 27 224 6045, sharene@luxerealestate.co.nz) and Corbin Howard (+64 21 027 1597, corbin@luxerealestate.co.nz). Office: Waterfront Ferry Building, 99-107 Quay Street, Auckland 1010. Featured: 503/9 Princes Street Auckland Central — $2,495,000, 2 bed 2 bath 1 car 139sqm, The International (former Grand Hotel), Jasmax Architects, Technogym pool spa cinema library concierge Onslow restaurant. Other listings: 1508/26 Albert St (Deadline Sale, 3 bed 209sqm), 302/2 Ruskin St Parnell ($2,495,000 2 bed), 1912/26 Albert St ($1,995,000 3 bed), Tairua villa (waterfront, by negotiation), 163A Paritai Drive Orakei (by negotiation). Free appraisals available. Be warm, concise, professional. Max 3 sentences.',
         messages: chatHistory
       })
     });
@@ -1454,7 +906,7 @@ async function sendMsg(text) {
     addMsg('agent', reply);
   } catch {
     hideTyping();
-    addMsg('agent', 'Please contact Sharene Temple on +64 27 224 6045 or visit luxerealestate.co.nz.');
+    addMsg('agent', 'Please contact Sharene Temple on +64 27 224 6045.');
   }
 }
 

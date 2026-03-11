@@ -582,6 +582,79 @@ section.featured, section.specialists, section.contact {
 /* About img — clean single image, no decorative border artifact */
 .about-img-accent { display: none !important; }
 
+
+/* ── 4K / RETINA RENDERING POLISH ── */
+*{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+
+/* Crisp image rendering at all DPIs */
+img{
+  image-rendering:-webkit-optimize-contrast;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+}
+
+/* Subpixel-precise transitions */
+.prop-card,.agent-card,.feat-thumb,.nav-cta,.btn,.hero-photo img{
+  transform:translateZ(0);
+  will-change:transform;
+}
+
+/* Smooth scroll with momentum on iOS */
+html{
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+}
+
+/* Nav — glass blur crisp on retina */
+.nav{
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  backdrop-filter:saturate(180%) blur(20px);
+}
+
+/* Hero image — maximum contrast/sharpness */
+.hero-photo img{
+  filter:contrast(1.05) saturate(1.08) brightness(.88);
+  image-rendering:auto;
+}
+
+/* Typography — tighten tracking at large sizes for retina */
+.hero-h1{letter-spacing:-0.02em!important}
+.section-title,h2{letter-spacing:-0.01em}
+
+/* Button focus states — accessibility + polish */
+a:focus-visible,button:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+/* Prop card image — prevent layout shift */
+.prop-img{
+  transform:translateZ(0);
+  backface-visibility:hidden;
+}
+
+/* Footer — crisp text on dark bg */
+.footer-logo,.footer-tagline,.footer-legal{
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Scrollbar — thin, branded */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--bg-dark)}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent-light,#d4b87a)}
+
+/* Selection highlight */
+::selection{background:var(--accent);color:#000}
+::-moz-selection{background:var(--accent);color:#000}
+
+/* Smooth section transitions */
+section{isolation:isolate}
+
+/* Remove tap highlight on mobile */
+*{-webkit-tap-highlight-color:transparent}
+
 </style>
 </head>
 <body>
@@ -698,10 +771,10 @@ section.featured, section.specialists, section.contact {
       <img src="images/featured1.jpg" alt="503/9 Princes Street, Auckland Central" class="feat-photo" onerror="this.style.cssText='background:linear-gradient(135deg,#0a0b0d,#161820);width:100%;height:100%;'"/>
       <div class="feat-thumbs">
         <div class="feat-thumb"><img src="images/featured2.jpg" alt="The International" onerror="this.parentNode.style.background='#161820'"/></div>
-        <div class="feat-thumb"><img src="images/featured3.jpg" alt="The International" onerror="this.parentNode.style.background='#161820'"/></div>
+        <div class="feat-thumb"><img src="images/office.jpg" alt="The International — lobby" onerror="this.parentNode.style.background='#161820'"/></div>
         <div class="feat-thumb"><img src="images/featured4.jpg" alt="The International" onerror="this.parentNode.style.background='#161820'"/></div>
-        <div class="feat-thumb"><img src="images/featured5.jpg" alt="The International" onerror="this.parentNode.style.background='#161820'"/></div>
-        <div class="feat-thumb"><img src="images/featured6.jpg" alt="The International" onerror="this.parentNode.style.background='#161820'"/><div class="feat-thumb-more">+22</div></div>
+        <div class="feat-thumb"><img src="images/home4.jpg" alt="The International — amenities" onerror="this.parentNode.style.background='#161820'"/></div>
+        <div class="feat-thumb"><img src="images/ruskin2.jpg" alt="The International — views" onerror="this.parentNode.style.background='#161820'"/><div class="feat-thumb-more">+22</div></div>
       </div>
     </div>
   </div>
@@ -753,7 +826,7 @@ section.featured, section.specialists, section.contact {
       </div>
       <!-- prop3: 1912/26 Albert Street -->
       <div class="prop-card rv d2" data-suburb="cbd">
-        <img src="images/prop3.jpg" alt="1912/26 Albert Street — Sanctuary in the Sky" class="prop-img" onerror="this.style.background='#111'"/>
+        <img src="images/1912albert.jpg" alt="1912/26 Albert Street — Sanctuary in the Sky" class="prop-img" onerror="this.style.background='#111'"/>
         <div class="prop-overlay"></div>
         <div class="prop-info">
           <span class="prop-tag">$1,995,000</span>
